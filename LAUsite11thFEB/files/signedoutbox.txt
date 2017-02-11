@@ -1,0 +1,3 @@
+<div class="loggedinToolbox">
+    <h2>You are logged in. <br><a href="login_page.html">Sign out</a></h2>
+  </div>
