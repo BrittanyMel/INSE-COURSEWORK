@@ -1,0 +1,17 @@
+{
+  "name": "lau",
+  "version": "1.0.0",
+  "description": "lau",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "msql": "*",
+    "mysql": "^2.13.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
