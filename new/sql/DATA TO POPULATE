@@ -1,0 +1,211 @@
+generate fake data for software engineering
+
+
+/* university_user */
+
+INSERT INTO UNIVERSITY_USER VALUES('704757','RomRoseCyder2','University of portsmouth','2','up704757@myport.ac.uk','Edward','miles')
+INSERT INTO UNIVERSITY_USER VALUES('843845','booGosh','University of portsmouth','3','up843845@myport.ac.uk','Gail','stone')
+INSERT INTO UNIVERSITY_USER VALUES('837800','BlueString','University of portsmouth','3','up837800@myport.ac.uk','Shad','Bishop')
+INSERT INTO UNIVERSITY_USER VALUES('733213','Greenleaf','University of portsmouth','1','up733213@myport.ac.uk','Barry','Fletcher')
+INSERT INTO UNIVERSITY_USER VALUES('807242','ComRoad2','University of portsmouth','2','up807242@myport.ac.uk','Germain','Harmon')
+INSERT INTO UNIVERSITY_USER VALUES('755324','water2Ocean9','University of portsmouth','3','up755324@myport.ac.uk','xantha','Rosa')
+INSERT INTO UNIVERSITY_USER VALUES('816867','PortSeaggirl2','University of portsmouth','2','up816867@myport.ac.uk','Savannah','case')
+INSERT INTO UNIVERSITY_USER VALUES('841678','IceCream2510','University of portsmouth','1','up841678@myport.ac.uk','Ursula','waters')
+INSERT INTO UNIVERSITY_USER VALUES('744919','SingStar562','University of portsmouth','1','up744919@myport.ac.uk','Tarik','Parks')
+INSERT INTO UNIVERSITY_USER VALUES('841308','Drink2flyk3','University of portsmouth','1','up841308@myport.ac.uk','Porter','cantu');
+
+
+/*POST */
+
+INSERT INTO POST VALUES('12000','The latest color of james watson halls is horrible. They should have bright colours not dead pastel colours.','02/04/2017','1');
+INSERT INTO POST VALUES('12001','Library facilities are amazing. They open 24/7 which is amazing, work throughout the night','02/04/2017','1')
+INSERT INTO POST VALUES('12003','University of Portsmouth Gym is well equipped but could be bigger.','02/04/2017','1');
+INSERT INTO POST VALUES('12004','The university is always offering trail sports for student to get involved, it is a good way for students to figure out what clubs they want to join at uni.','02/04/2017','1');
+INSERT INTO POST VALUES('12005','Private housing at Uni can be expensive if you live on your own. But the bigger the house(more house mates), the lower your rent can be.','02/04/2017','1');
+INSERT INTO POST VALUES('12006','Food is a must when you are a uni student, but there is only subway close by to the library if you want to buy food or the Corp. My advice walk with your own food especially if you dont want to walk to commercial road.','02/04/2017','1');
+INSERT INTO POST VALUES('12007','Uni buildings are normally opened until 8 most times but the library is open 24/7, maybe they should consider having the other buildings opened later.','02/04/2017','1');
+INSERT INTO POST VALUES('12008','The Uni bus only works weekdays so Taxis fare is a must if you dont want to walk around portsmouth on the weekend. PPL use Uber, but there really should be a student transport for weekends.','02/04/2017','1');
+INSERT INTO POST VALUES('12009','Student support is always available, the lectures are available through email monday to friday (mostly during office hours), while some can take forever to get back to you. Definitely utilise them after all you are paying for it.','02/04/2017','1');
+INSERT INTO POST VALUES('12010','Purple Wednesday is social night for most university students, everyone experiences it differently, your experience can be from calm to extreme wild. Have fun, you are at Uni.','02/04/2017','1');
+
+
+
+/* GUEST USER */
+
+INSERT INTO GUEST_USER VALUES ('10000','MacyNunc','JohC',Computer Science','ipsum.cursus@tempus.com','Erasmus','Richards')
+INSERT INTO GUEST_USER VALUES ('10089','ConanVitae','CosmoPower32','Software Engineering','aliquet.Proin@vitaesodales.com','Gwendolyn','Pierce')
+INSERT INTO GUEST_USER VALUES ('10078','OraDolor','PinkGirl373','Cosomology,'diam@velconvallisin.net','Summer','Mann')
+INSERT INTO GUEST_USER VALUES ('10022','AladdinPretium','Crises67','Law','ad@laoreetposuereenim.org','Nash','Stanton')
+INSERT INTO GUEST_USER VALUES ('10032','MelindaTurpis','hhpes990','Civil Engineering','neque.Morbi.quis@euenimEtiam.ca','Jack','Mathis')
+INSERT INTO GUEST_USER VALUES ('10490','KimberlyVehicula','phiSweets90','Business Management','parturient.montes.nascetur@justofaucibuslectus.ca','Nicholas','Guy')
+INSERT INTO GUEST_USER VALUES ('10902','EricDui','girlPink2Power','Computing','eu.turpis@malesuadaid.edu','Diana','Sweeney')
+INSERT INTO GUEST_USER VALUES ('10211','YvonneLuctus','skyDive45','Ohysics','magna.Lorem.ipsum@nulla.ca','Blythe','Dawson')
+INSERT INTO GUEST_USER VALUES ('10088','LenoreAenean','ItKelia70','Computer Science','Integer@at.edu','Kelly','Alvarado')
+INSERT INTO GUEST_USER VALUES ('10002','SydneyAliquam','BrillExel029','Software Engineering','posuere.vulputate@nonenimMauris.net','Sean','Shannon');
+
+
+
+/* SYSTEM ACCESS */
+
+INSERT INTO ACCESS VALUES('1','yes','yes')
+INSERT INTO ACCESS VALUES('2','yes','no')
+INSERT INTO ACCESS VALUES('3','no','no');
+
+
+
+/* EDIT */
+
+INSERT INTO EDIT VALUES('536','1','Lorem ipsum dolor sit amet, consectetuer adipiscing elit','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('593','1','mi lorem, vehicula et, rutrum eu, ultrices sit amet, risus','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('511','4','before. Maecenas mi recipes, Colorado','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('512','2','the author wishes. Some players. No football or mass carton kids','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('555','1','life was. Live without','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('549','5','nibh dolor, nonummy ac, feugiat non','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('530','3','mourning policies. Class began to sociosqu','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('576','4','ante, iaculis nec, eleifend non, dapibus rutrum, justo. present','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('588','4','Nor, in diameter. Duis nunc nisi, condimentum eget, volutpat ornare','IMAGE.JPEG','1')
+INSERT INTO EDIT VALUES('591','4','mollis dui, in sodales elit erat augue enim felis Nam. film','IMAGE.JPEG','1')
+
+/*SORT*/
+
+INSERT INTO SORT VALUES('1','5','13/12/2017')
+INSERT INTO SORT VALUES('2','5','22/06/2016')
+INSERT INTO SORT VALUES('3','5','09/05/2016')
+INSERT INTO SORT VALUES('4','4','10/06/2016')
+INSERT INTO SORT VALUES('5','4','22/04/2016')
+INSERT INTO SORT VALUES('6','3','23/10/2017')
+INSERT INTO SORT VALUES('7','3','05/02/2018')
+INSERT INTO SORT VALUES('8','2','18/08/2016')
+INSERT INTO SORT VALUES('9','2','22/07/2016')
+INSERT INTO SORT VALUES('10','1','06/03/2017');
+
+/* REVIEWS */
+
+INSERT INTO REVIEWS VALUES(6001,'1','Even pregnant employee','12/05/2017','gravida sagittis quis turpis vitae purus. Film batteries. present','1')
+INSERT INTO REVIEWS VALUES('6002','7','alcohol. The latest','27/09/2016','great. Reserved football is sometimes present. also','2')
+INSERT INTO REVIEWS VALUES('6003','4','Sometimes. Now amet commodo','15/02/2018','The latest basketball targeted hardware. In fact, sometimes it does not save. Aeneas','3')
+INSERT INTO REVIEWS VALUES('6004','6','up','17/01/2018','real estate. Integer football pools. each','4')
+INSERT INTO REVIEWS VALUES('6005','5','lake. Also drink warm fears.','15/04/2016','by means of our marriage, Curabitur porttitor tellus. mauris','5')
+INSERT INTO REVIEWS VALUES('6006','3','propaganda and of itself. id','16/03/2017','budget, offset','6')
+INSERT INTO REVIEWS VALUES('6007','5','beginner','20/09/2016','mattis semper, rutrum dui lectus urna, nec','7')
+INSERT INTO REVIEWS VALUES('6008','4','nibh. The latest football free at','07/12/2016','Present grief.','8')
+INSERT INTO REVIEWS VALUES('6009','1','Weddings.','21/07/2016','thermal worth it. Suspendisse ac metus vitae velit egestas lacinia.','9')
+INSERT INTO REVIEWS VALUES('6010','3','aptent','09/01/2018','Celtics mass. Lorem not now','10');
+
+
+/* ACCOUNT */
+
+INSERT INTO ACCOUNT VALUES('135402','30/07/2017','10000','704757')
+INSERT INTO ACCOUNT VALUES('187892','07/02/2018','10089','843845')
+INSERT INTO ACCOUNT VALUES('178654','06/07/2016','10078','837800')
+INSERT INTO ACCOUNT VALUES('167521','04/08/2017','10022','733213')
+INSERT INTO ACCOUNT VALUES('163908','06/02/2018','10032','807242')
+INSERT INTO ACCOUNT VALUES('176987','25/12/2017','10490','755324')
+INSERT INTO ACCOUNT VALUES('154325','18/05/2016','10902','816876')
+INSERT INTO ACCOUNT VALUES('109876','06/12/2016','10211','841678')
+INSERT INTO ACCOUNT VALUES('163926','04/02/2017','10088','744919')
+INSERT INTO ACCOUNT VALUES('125340','18/08/2017','10002','841308');
+
+
+/* ACCOUNT_HAS_ACCESS */
+
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('135402','10000','704757','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('187892','10089','843845','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('178654','10078','837800','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('167521','10022','733213','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('163908','10032','807242','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('176987','10490','755324','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('154325','10902','816867','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('109876','10211','841678','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('163926','10088','744919','1')
+INSERT INTO ACCOUNT_HAS_ACCESS VALUES('125340','10002','841308','1')
+
+/* ASK_QUESTIONS */
+
+INSERT INTO ASK_QUESTIONS VALUES('501','or, eu vulputate, odio. Phasellus at propaganda that has been said before','1','1')
+INSERT INTO ASK_QUESTIONS VALUES('502','bow and foot. now','2','2')
+INSERT INTO ASK_QUESTIONS VALUES('503','and facilisis facilisis, magna tellus the jaws of a lion, in lobortis tellus','3','3')
+INSERT INTO ASK_QUESTIONS VALUES('504','region. now graduated','4','4')
+INSERT INTO ASK_QUESTIONS VALUES('505','now. Highlights sit at a smile. Now and salad','5','5')
+INSERT INTO ASK_QUESTIONS VALUES('506','Microwave, but scores','6','6')
+INSERT INTO ASK_QUESTIONS VALUES('507','My deductible poverty. But quiver gas Listing','7','7')
+INSERT INTO ASK_QUESTIONS VALUES('508','However','8','8')
+INSERT INTO ASK_QUESTIONS VALUES('509','it is now, a soft non, cursus non, egestas a','9','9')
+INSERT INTO ASK_QUESTIONS VALUES('510','and himself. Phasellus vitae mauris sit amet','10','10');
+
+/*Amend*/
+INSERT INTO AMEND VALUES(00067,6601,501);
+INSERT INTO AMEND VALUES(00007,6002,502);
+INSERT INTO AMEND VALUES(00023,6003,503);
+INSERT INTO AMEND VALUES(00120, 6007, 504);
+INSERT INTO AMEND VALUES(00111,6009,505);
+INSERT INTO AMEND VALUES(00002, 6004,506);
+INSERT INTO AMEND VALUES(00021, 6005,507);
+INSERT INTO AMEND VALUES(00090,6006,508);
+INSERT INTO AMEND VALUES(00203, 6008,509);
+INSERT INTO AMEND VALUES(00238, 6010, 510);
+
+
+/*LOGIN*/
+
+INSERT INTO LOGIN VALUES(90000, 'RomRoseCyder2', 704757);
+INSERT INTO LOGIN VALUES(90001, 'IceCream2510', 841678);
+INSERT INTO LOGIN VALUES(90102, 'ComRoad2', 807242);
+INSERT INTO LOGIN VALUES(90013, 'SkyDive45', 10211);
+INSERT INTO LOGIN VALUES(90024, 'PinkGirl1373', 10078);
+
+/*Category*/
+
+INSERT INTO CATEGORY VALUES('ACCOMODATION',001,26,6008,536,509,1);
+INSERT INTO CATEGORY VALUES('COURSE', 002, 110,6002,549,502,1);
+INSERT INTO CATEGORY VALUES('STUDENT LIFE', 003,53,6004,511,506,1);
+INSERT INTO CATEGORY VALUES('TRANSPORT', 004, 90,6007,5898,504,1);
+INSERT INTO CATEGORY VALUES('UNIVERSITY FACILITIES', 005,26,6009,555,505,1);
+INSERT INTO CATEGORY VALUES('ENTERTAINMENT', 006, 80, 6010,576,510,1);
+
+/*QUESTION_REPLY*/
+
+INSERT INTO QUESTION_REPLY VALUES(120, 'BUSES SHOULD BE CLEANER', 501);
+INSERT INTO QUESTION_REPLY VALUES(100, 'FOOD SHOULD NOT BE THIS EXPENSIVE', 509);
+INSERT INTO QUESTION_REPLY VALUES(103, 'GYM IS ALWAYS FULL, UNLESS YOU GO DURING SCHOOL HOURS MATE', 503);
+INSERT INTO QUESTION_REPLY VALUES(107, 'POLE DANCING CLASS IS WAY MORE WORK THAN PEOPLE THINK', 507);
+INSERT INTO QUESTION_REPLY VALUES(143, 'STUDENT UNION CLOSES AT 16:00 AND OPENS AT 9:00, IT IS NOT RUN BY THE UNIVERSITY,MATE', 504);
+INSERT INTO QUESTION_REPLY VALUES(133, 'MORE SEATING IS IMPOSSIBLE IN THE CURRENT SPACE, YOU SHOULD SAY THEY NEED MORE SPACE.', 502);
+
+
+/* DEACTIVATE_REQUEST */
+
+INSERT INTO DEACTIVATE_REQUEST VALUES('434','29/07/2017','10032')
+INSERT INTO DEACTIVATE_REQUEST VALUES('423','29/09/2017','10211')
+INSERT INTO DEACTIVATE_REQUEST VALUES('424','21/03/2017','10089');
+
+
+/* SEARCH */
+
+INSERT INTO SEARCH VALUES('in', 'ACCOMODATION')
+INSERT INTO SEARCH VALUES('it is', 'COURSE')
+INSERT INTO SEARCH VALUES('Integer', 'STUDENT LIFE')
+INSERT INTO SEARCH VALUES('need', 'TRANSPORT')
+INSERT INTO SEARCH VALUES('Instantly','UNIVERSITY FACILITIES')
+INSERT INTO SEARCH VALUES('Super Bowl', 'ENTERTAINMENT')
+INSERT INTO SEARCH VALUES('raining now', 'COURSE')
+INSERT INTO SEARCH VALUES('great makeup', 'ACCOMODATION')
+INSERT INTO SEARCH VALUES('at', 'ENTERTAINMENT')
+INSERT INTO SEARCH VALUES('innovative eros','TRANSPORT');
+/* SITE_ADMIN */
+
+INSERT INTO SITE_ADMIN VALUES(8220,'JOHN LEWIS', 6001);
+INSERT INTO SITE_ADMIN VALUES(8220,'JOHN LEWIS', 6008);
+
+/*ACCESS_HAS_REVIEWS */
+
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(1,6007);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(1,6009);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(2,6008);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(2,6001);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(1,6002);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(1,6003);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(2,6004);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(1,6005);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(1,6006);
+INSERT INTO ACCESS_HAS_REVIEWS VALUES(2,6010);
