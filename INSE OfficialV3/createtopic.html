@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>LAU | Sign in</title>
+
+    <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+    <link rel="icon" type="image/png" href="images/icon.png">
+</head>
+<body id="LoginPageBackground">
+  <div class="login-box-topic">
+    <a id="home-button" class="Button" href="index.html">Home</a>
+    <h1> Create a topic </h1>
+  <form>
+    <input type="text" name="name" placeholder="Title of topic">
+    <br>
+    <div class="picture">
+      <input type="file" onchange="previewFile()"><br>
+      <img src="" height="220" alt="Choose an image to display the topic">
+    </div>
+    <a id="submit-button" class="Button" href="index.html">Submit review</a>
+  </form>
+</div>
+
+<button id="back" onclick="goBack()">Go Back</button>
+<script>
+function previewFile() {
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+</script>
+</body>
+
+</html>
