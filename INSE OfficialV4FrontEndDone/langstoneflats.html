@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>LAU | Langstone Flats</title>
+  <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="images/icon.png" sizes="32x32">
+  <script src="client.js"></script>
+</head>
+
+<body>
+  <div class="LogedInStatusBox">
+    <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
+    <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
+  </div>
+  <form id="search-form">
+    <input id="bar" type="text" placeholder="Search..." required>
+    <input id="button" type="button" value="Search">
+  </form>
+  <ul id="NavBar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="studentlife.html">Student Life</a></li>
+    <li><a href="accommodation.HTML">Accommodation</a></li>
+    <li><a href="transport.html">Transport</a></li>
+    <li><a href="facilities.html">Facilities</a></li>
+    <li><a href="entertainment.html">Entertainment</a></li>
+  </ul>
+  <p id="you-are-here">
+    You are here: University of Portsmouth > Accommodation > Langstone Flats
+  </p>
+  <h1 class="PageTitle"> Langstone Flats <br /><br /></h1>
+  <div class="review-gallery cf">
+    <div>
+      <img src="images/accom/jamesreview1.jpg" />
+    </div>
+    <div>
+      <img src="images/accom/langstone1.jpg" />
+    </div>
+    <div>
+      <img src="images/accom/langstone2.jpg" />
+    </div>
+    <div>
+      <img src="images/accom/langstone3.jpg" />
+    </div>
+    <div>
+      <img src="images/accom/jamesreview5.jpg" />
+    </div>
+    <div>
+      <img src="images/accom/langstone4.jpg" />
+    </div>
+  </div>
+  <p class="review-rating">
+    Rating: 4★
+    <fieldset class="rating" id="top-rating">
+      <legend>Please rate:</legend>
+      <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Great!">5 stars</label>
+      <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+      <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+      <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very Bad">1 star</label>
+    </fieldset>
+  </p>
+  <p class="review-text">
+   192 rooms in halls <br /> overlooking the harbour in self-contained flats for 8 students each.
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+  </p>
+  <h2 class="discussion-heading">
+    Discussion - Get your questions answered:
+  </h2>
+  <div class="question-box">
+    <p id="question-box-question">Q: Are the bathrooms shared?</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p id="question-box-answer">A: Each room has an en-suite shower and toilet</p>
+  </div>
+  <div class="question-box">
+    <p id="question-box-question">Q: How many rooms in each flat?</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p id="question-box-answer">A: Each flat has 6 rooms</p>
+  </div>
+  <div class="question-box">
+    <p id="question-box-question">Q: Are the halls peaceful/quiet?</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p id="question-box-answer">A: The halls can be busy and loud at times, <br /> and they're right next to the noisy clubs.</p>
+  </div>
+  <div class="question-box">
+    <p id="question-box-question">Have your own question? Input below.</p>
+    <p><br /></p>
+    <p><br /></p>
+    <form>
+      Question: <input id="input-question" type="text" name="submit-question"><br>
+      <input id="input-question" type="submit" value="Submit">
+    </form>
+  </div>
+    <img id="SiteMap" border="0" alt="sitemap" src="images/accom/accommaplink.png">
+  <div class="login-box-review">
+    <h1> Create a review </h1>
+  <form>
+    <input type="text" name="name" placeholder="Title of review">
+    <br>
+    <select class="reviewType">
+      <option value="" disabled selected hidden="">Select an area related to your review</option>
+      <option value="courses">Courses</option>
+      <option value="studentlife">Student life</option>
+      <option value="accomodation">Accomodation</option>
+      <option value="transport">Transport</option>
+      <option value="facilities">Facilities</option>
+      <option value="entertainment">Entertainment</option>
+    </select>
+    <br>
+    <textarea id="reviewBox"type="text" name="name" placeholder="Write review"> </textarea>
+    <br>
+    </p>
+    <fieldset class="rating" id="top-rating-Box">
+      <legend>Please rate:</legend>
+      <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Great!">5 stars</label>
+      <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+      <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+      <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very Bad">1 star</label>
+    </fieldset>
+    <a id="button-Box" class="button"> Submit review </a>
+  </form>
+</div>
+  <h2 class="review-heading">
+    See the most recent reviews for Langstone Flats below:
+  </h2>
+  <div id = "reviewsTest">
+  </div>
+</body>
+
+
+</html>
