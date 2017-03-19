@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <title>LAU | Sign in</title>
-
-
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-    <link rel="icon" type="image/png" href="images/icon.png" sizes="32x32">
+ <meta charset="UTF-8">
+ <title>LAU | Login page</title>
+ <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+ <link rel="icon" type="image/png" href="images/icon.png" sizes="32x32">
+ <script src="client.js"></script>
 </head>
-
-<body>
-  <div class="login-background">
-    <img src="images/loginbg.png" alt="Login-BG" width="1920" height="1080">
-  </div>
-  <div class="logo-img">
-    <img src="images/logo.png" alt="LAU LOGO" width="600" height="750">
-  </div>
-
+<body id="LoginPageBackground">
+  <img id="logo-img" src="images/logo.png" alt="LAU LOGO">
   <div class="login-box">
     <a id="home-button" class="Button" href="index.html">Home</a>
-    <h2><br />Already registered? Log in here.</h2><br>
-  <form>
-    <input type="email" name="email" placeholder="UPXXXXXX@myport.ac.uk">
-    <input type="password" name="pass" placeholder="Password">
-    <input type="submit" name="login" class="login login-submit" value="Login">
+    <h2>Already registered? Log in here.</h2>
+  <form name="login" id="login">
+    <input type="email" name="login" placeholder="UPXXXXXX@myport.ac.uk">
+    <input type="password" name="login" placeholder="Password">
+    <!-- <input type="submit" name="login" class="login login-submit" value="Login"> -->
+    <button onclick="test(); return false;"> submit </button>
   </form>
-		<h2>New User? Just input your details below.</h2>
-	<form>
+    <h2>New User? Just input your details below.</h2>
+  <form name="register">
     <input type="text" name="email" placeholder="UPXXXXXX@myport.ac.uk">
-		<input type="text" name="name" placeholder="Full Name">
-		<input type="text" name="displayname" placeholder="Display Name">
+    <input type="text" name="name" placeholder="Full Name">
+    <input type="text" name="displayname" placeholder="Display Name">
     <input type="password" name="pass" placeholder="Password">
-		<input type="password" name="passconfirmation" placeholder="Confirm Password">
-    <input type="submit" name="register" class="login login-submit" value="Register">
+    <input type="password" name="passconfirmation" placeholder="Confirm Password">
+    <!-- <input type="button" name="register" class="login login-submit" value="Register" onclick="test()"> -->
+    <button onclick="test()"> submit </button>
   </form>
-
-
   <div class="login-help">
     <a href="https://www.youtube.com/watch?v=oKI-tD0L18A">Forgot your password? Click here for help.</a>
   </div>
 </div>
-
 </body>
-
 </html>

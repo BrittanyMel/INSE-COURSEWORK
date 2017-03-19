@@ -7,10 +7,10 @@
 
   <title>LAU | Sign in</title>
 
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
     <link rel="icon" type="image/png" href="images/icon.png">
 </head>
-<body background = "images/loginbg.png">
+<body id="LoginPageBackground">
   <div class="login-box-topic">
     <a id="home-button" class="Button" href="index.html">Home</a>
     <h1> Create a topic </h1>
@@ -26,14 +26,6 @@
 </div>
 
 <button id="back" onclick="goBack()">Go Back</button>
-
-<script>
-function goBack() {
-    window.history.back();
-}
-
-
-</script>
 <script>
 function previewFile() {
   var preview = document.querySelector('img');

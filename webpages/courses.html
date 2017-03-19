@@ -1,86 +1,72 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html>
 
 <head>
   <meta charset="UTF-8">
   <title>LAU | Courses</title>
-  <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="images/icon.png" sizes="32x32">
 </head>
-
 <body>
-  <div class="banner-bg">
-    <img src="images/banner.png" alt="LAU banner" width="1920" height="220">
-  </div>
-  <div class="loginToolbox">
-    <h2>Already registered? <a href="login_page.html">Log in here.</a></h2>
-    <h2>New User? <a href="login_page.html">Create an account here.</a></h2>
+  <div class="LogedInStatusBox">
+    <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
+    <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
   </div>
   <form id="search-form">
     <input id="bar" type="text" placeholder="Search..." required>
     <input id="button" type="button" value="Search">
   </form>
-  <div id="hmenuu">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="studentlife.html">Student Life</a></li>
-      <li><a href="accommodation.HTML">Accommodation</a></li>
-      <li><a href="transport.html">Transport</a></li>
-      <li><a href="facilities.html">Facilities</a></li>
-      <li><a href="entertainment.html">Entertainment</a></li>
-    </ul>
-  </div>
-  <h1 class="St"> Courses </h1>
-  <h2 class="newtopic"><a href="createtopic.html">Create a new topic</a></h2>
+  <ul id="NavBar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="studentlife.html">Student Life</a></li>
+    <li><a href="accommodation.HTML">Accommodation</a></li>
+    <li><a href="transport.html">Transport</a></li>
+    <li><a href="facilities.html">Facilities</a></li>
+    <li><a href="entertainment.html">Entertainment</a></li>
+  </ul>
+<h1 class="PageTitle"> Courses </h1>
+<h2 class="NewReviewHeader"><a href="createtopic.html">Create a new topic</a></h2>
   <div class="info-box">
-    <img id="info-box-img" src="images/uop-img.png" alt="uop">
-    <a id="info-box-title" href="jameswatsonhall.html">Computer Science</a>
-    <p><br /></p>
-    <p><br /></p>
-    <a id="info-box-subtext" href="jameswatsonhall.html">Click this page to find out more information about workload,<br />or lecturers etc. Feel free to leave your own review!</a>
-    <a id="info-box-rating" href="jameswatsonhall.html">5★</a>
+  <img id="info-box-img" src="images/uop-img.png" alt="Computer science">
+  <a id="info-box-title" href="computerscience.html">Computer science</a>
+  <a id="info-box-subtext" href="computerscience.html">Click this page to find out more information,<br />or to leave your own review!</a>
+  <a id="info-box-rating" href="computerscience.html">4★</a>
   </div>
   <div class="info-box">
-    <img id="info-box-img" src="images/uop-img.png" alt="uop">
-    <a id="info-box-title" href="index.html">Software Engineering</a>
-    <p><br /></p>
-    <p><br /></p>
-    <a id="info-box-subtext" href="index.html">Click this page to find out more information about workload,<br />or lecturers etc. Feel free to leave your own review!</a>
-    <a id="info-box-rating" href="index.html">5★</a>
+  <img id="info-box-img" src="images/uop-img.png" alt="Computing">
+  <a id="info-box-title" href="computing.html">Computing</a>
+  <a id="info-box-subtext" href="computing.html">Click this page to find out more information,<br />or to leave your own review!</a>
+  <a id="info-box-rating" href="computing.html">4★</a>
   </div>
   <div class="info-box">
-    <img id="info-box-img" src="images/uop-img.png" alt="uop">
-    <a id="info-box-title" href="index.html">Business Information Systems</a>
-    <p><br /></p>
-    <p><br /></p>
-    <a id="info-box-subtext" href="index.html">Click this page to find out more information about workload,<br />or lecturers etc. Feel free to leave your own review!</a>
-    <a id="info-box-rating" href="index.html">4★</a>
+  <img id="info-box-img" src="images/uop-img.png" alt="Computer Games techonology">
+  <a id="info-box-title" href="computergamestechnology.html">Computer Games techonology</a>
+  <a id="info-box-subtext" href="computergamestechnology.html">Click this page to find out more information,<br />or to leave your own review!</a>
+  <a id="info-box-rating" href="computergamestechnology.html">2★</a>
   </div>
   <div class="info-box">
-    <img id="info-box-img" src="images/uop-img.png" alt="uop">
-    <a id="info-box-title" href="index.html">Computer Games Technology</a>
-    <p><br /></p>
-    <p><br /></p>
-    <a id="info-box-subtext" href="index.html">Click this page to find out more information about workload,<br />or lecturers etc. Feel free to leave your own review!</a>
-    <a id="info-box-rating" href="index.html">2★</a>
+  <img id="info-box-img" src="images/uop-img.png" alt="Forensic Computing">
+  <a id="info-box-title" href="forensiccomputing.html">Forensic Computing</a>
+  <a id="info-box-subtext" href="forensiccomputing.html">Click this page to find out more information,<br />or to leave your own review!</a>
+  <a id="info-box-rating" href="forensiccomputing.html">3★</a>
   </div>
   <div class="info-box">
-    <img id="info-box-img" src="images/uop-img.png" alt="uop">
-    <a id="info-box-title" href="index.html">Music Computing</a>
-    <p><br /></p>
-    <p><br /></p>
-    <a id="info-box-subtext" href="index.html">Click this page to find out more information about workload,<br />or lecturers etc. Feel free to leave your own review!</a>
-    <a id="info-box-rating" href="index.html">3★</a>
+  <img id="info-box-img" src="images/uop-img.png" alt="Software Engineering">
+  <a id="info-box-title" href="softwareengineering.html">Software Engineering</a>
+  <a id="info-box-subtext" href="softwareengineering.html">Click this page to find out more information,<br />or to leave your own review!</a>
+  <a id="info-box-rating" href="softwareengineering.html">4★</a>
   </div>
-  <a id="page-rightside" href="http://www.port.ac.uk/maps-and-directions/">
-    <img border="0" alt="sitemap" src="images/accom/accommaplink.png">
-  </a>
+  <div class="info-box">
+  <img id="info-box-img" src="images/uop-img.png" alt="Web Technologies">
+  <a id="info-box-title" href="webtechnologies.html">Web Technologies</a>
+  <a id="info-box-subtext" href="webtechnologies.html">Click this page to find out more information,<br />or to leave your own review!</a>
+  <a id="info-box-rating" href="webtechnologies.html">4★</a>
+  </div>
+<a id="page-rightside" href="http://www.port.ac.uk/maps-and-directions/">
+  <img border="0" alt="sitemap" src="images/accom/accommaplink.png">
+</a>
+
 </body>
-<body class="container">
-  <div class="loginToolbox">
-    <h2>Already registered? <a href="login_page.html">Log in here.</a></h2>
-    <h2>New User? <a href="login_page.html">Create an account here.</a></h2>
-  </div>
-</body>
+</html>

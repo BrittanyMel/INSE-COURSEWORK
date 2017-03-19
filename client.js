@@ -1,56 +1,93 @@
-function loadReviews(){
-	var output = window.container.reviews;
-	for(var i=0; i<5;i++){
-		var output = window.container.reviews;
-		var reviewBox = document.createElement("div");
-		reviewBox.classList("review-box");
+window.onload = retrieveReviews();
 
-		var breaki = document.createElement("p");
-		breaki.createTextNode('br />');
+// var registerForm = document.forms.namedItem("register");
+// var loginForm = document.forms.namedItem("login");
+// console.log(loginForm);
+//
+// loginForm.addEventListener('submit',function(ev){
+// 	data = new FormData(form);
+// 	console.log(data);
+// 	var req = new XMLHttpRequest();
+// 	req.open("POST", '/api/login');
+// 	req.onload = function(oEvent){
+// 		if(req.status == 200){
+// 			console.log("success");
+// 		}
+// 		else{
+// 			console.log("fail");
+// 			alert("Login failed: bad Username")
+// 		}
+// 	};
+// 	req.send(data);
+// 	ev.preventDefault();
+// 	}, false);
+// });
 
-		var questionBoxQuestion = document.createElement("p");
-		questionBoxQuestion.setAttribute("id", "question-box-question");
-		questionBoxQuestion.textContent = "test";
 
-		var questionBoxAnswer = document.createElement("p");
-		questionBoxAnswer.setAttribute("id", "question-box-answer");
-		questionBoxAnswer.textConent = "testing";
+function test(){
+	var registerForm = document.forms.namedItem("register");
+	var loginForm = document.forms.namedItem("login");
+	data = new FormData(loginForm);
+	console.log(data);
+	var req = new XMLHttpRequest();
+	req.open("POST", '/api/login');
+	req.onload = function(oEvent){
+		if(req.status == 200){
+			console.log("success");
+		}
+		else{
+			console.log("fail");
+			alert("Login failed: bad Username");
+		}
+	};
+	req.send(data);
+}
 
-		var rating = document.createElement("p");
-		rating.setAttribute("id", "info-box-rating");
-		rating.textContent = "3★";
+function displayReview(title,mainContent,star){
 
-		reviewBox.appendChild(questionBoxQuestion);
-		reviewBox.appendChild(breaki);
-		reviewBox.appendChild(questionBoxAnswer);
-		reviewBox.appendChild(rating);
-		output.appendChild(reviewBox);
+	var output = document.getElementById('reviewsTest');
+	var reviewBox = document.createElement("div");
+	reviewBox.classList.add("review-box");
+	var p = document.createElement("p");
+	var breaki = document.createElement("br");
+	p.appendChild(breaki);
+	var questionBoxQuestion = document.createElement("p");
+	questionBoxQuestion.setAttribute("id", "review-box-title");
+	questionBoxQuestion.textContent = title;
+	var questionBoxAnswer = document.createElement("p");
+	questionBoxAnswer.setAttribute("id", "review-box-answer");
+	questionBoxAnswer.textContent = mainContent;
+	var rating = document.createElement("p");
+	rating.setAttribute("id", "info-box-rating");
+	rating.textContent = star + "★";
+
+	reviewBox.appendChild(questionBoxQuestion);
+	reviewBox.appendChild(p);
+	reviewBox.appendChild(p);
+	reviewBox.appendChild(questionBoxAnswer);
+	reviewBox.appendChild(rating);
+	output.appendChild(reviewBox);
+}
+function retrieveReviews() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/reviews');
+    xhr.setRequestHeader("Content-Type", "text/xml");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+								var jsonResponse = JSON.parse(xhr.responseText);
+								console.log(jsonResponse);
+								loadReviews(jsonResponse);
+            }
+        }
+    };
+    xhr.send(null);
+}
+function loadReviews(reviews){
+	for (var i=0; i<reviews.length; i++){
+		console.log(reviews[i].REVIEW_CATEGORY);
+  	console.log(reviews[i].REVIEW_ID);
+
+		displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS);
 	}
 }
-// <div class="review-box">
-//       <p id="question-box-question">Great student accommodation</p>
-//       <p><br /></p>
-//       <p><br /></p>
-//       <p id="question-box-answer">Had a great time in this hall, would reccommend to anyone!</p>
-//       <p id="info-box-rating">5★</p>
-//     </div>
-//     <div class="review-box">
-//       <p id="question-box-question">Loud, dirty halls</p>
-//       <p><br /></p>
-//       <p><br /></p>
-//       <p id="question-box-answer">
-//         This hall is right next to the clubs and is subject <br />
-//         to an incredible amount of noise pollution! If you want to <br />
-//         be able to sleep, find a different hall!
-//       </p>
-//       <p id="info-box-rating">3★</p>
-//     </div>
-//     <div class="review-box">
-//       <p id="question-box-question">Good location but expensive laundry</p>
-//       <p><br /></p>
-//       <p><br /></p>
-//       <p id="question-box-answer">
-//         Why do I have to pay an arm and a leg to be clean damnit
-//       </p>
-//       <p id="info-box-rating">4★</p>
-//     </div>
