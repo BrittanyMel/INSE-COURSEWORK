@@ -10,7 +10,7 @@
   <script src="client.js"></script>
 </head>
 
-<body>
+<body class="container-fluid">
   <div class="LogedInStatusBox">
     <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
     <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
@@ -35,38 +35,38 @@
   <h2 class="discussion-heading-courses">
     Discussion - Get your questions answered:
   </h2>
-  <div class="question-box">
-    <p id="question-box-question">Q: Are there any supermarkets near the university?</p>
-    <p><br /></p>
-    <p><br /></p>
-    <p id="question-box-answer">A: Yes there is a sainsburys, a tescos and at least 2 co ops, within 10 minutes of the uni.</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="question-box">
+        <p id="question-box-question">Q: Are there any supermarkets near the university?</p>
+        <p><br /></p>
+        <p><br /></p>
+        <p id="question-box-answer">A: Yes there is a sainsburys, a tescos and at least 2 co ops, within 10 minutes of the uni.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="question-box">
+        <p id="question-box-question">Have your own question? Input below.</p>
+        <p><br /></p>
+        <p><br /></p>
+        <form>
+          Question: <input id="input-question" type="text" name="submit-question"><br>
+          <input id="input-question" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="question-box">
-    <p id="question-box-question">Have your own question? Input below.</p>
-    <p><br /></p>
-    <p><br /></p>
-    <form>
-      Question: <input id="input-question" type="text" name="submit-question"><br>
-      <input id="input-question" type="submit" value="Submit">
-    </form>
-  </div>
-  <div class="login-box-review-courses">
-    <h1> Create a review </h1>
-    <form method="post" action="/api/createReview">
-      <input type="text" name="name" placeholder="Title of review">
-      <br>
-      <select class="reviewType">
-        <option value="" disabled selected hidden="">Select an area related to your review</option>
-        <option value="courses">Courses</option>
-        <option value="studentlife">Student life</option>
-        <option value="accomodation">Accomodation</option>
-        <option value="transport">Transport</option>
-        <option value="facilities">Facilities</option>
-        <option value="entertainment">Entertainment</option>
-      </select>
-      <br>
-      <textarea id="reviewBox"type="text" name="name" placeholder="Write review"> </textarea>
-      <br>
+  <div class= "row">
+    <h2 class="review-heading-courses">
+      See the most recent reviews for Food below:
+    </h2>
+    <div class="login-box-review-courses">
+      <h1> Create a review </h1>
+      <form method="post" action="/api/createReview">
+        <input type="text" name="name" placeholder="Title of review">
+        <br>
+        <textarea id="reviewBox"type="text" name="name" placeholder="Write review"> </textarea>
+        <br>
       </p>
       <fieldset class="rating" id="top-rating-Box">
         <legend>Please rate:</legend>
@@ -78,13 +78,25 @@
       </fieldset>
       <input type="submit" name="submit" id="button-Box" class="button" value="Submit">
     </form>
-</div>
-  <h2 class="review-heading-courses">
-    See the most recent reviews for Food below:
-  </h2>
-  <div id = "reviewsTest">
   </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="question-box">
+      <p id="question-box-question">Good</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p id="question-box-answer">The service was fast and good.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="question-box">
+      <p id="question-box-question">Bad</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p id="question-box-answer">I service was not at the level that i expected it to be.</p>
+    </div>
+  </div>
+</div>
 </body>
-
-
 </html>

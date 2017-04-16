@@ -9,7 +9,7 @@ body {
 
 /** sets the background and font of the login page**/
 #LoginPageBackground{
-  background-image: url("images/loginbg.png") !important;
+  background-image: url("images/websiteBG-noline.png") !important;
   font-family: 'Roboto', sans-serif !important;
 }
 
@@ -139,9 +139,8 @@ body {
 /** This positions and resizes the basic slider **/
 div#slider{
   overflow: hidden;
-  margin-top: 3%;
   width: 80%;
-  margin-left: 10%;
+  margin: 1.5em auto;
 }
 
 /** This styles the images used **/
@@ -179,19 +178,14 @@ div#slider figure {
   margin: 0 0.7em;
 }
 
-.row{
-  margin-top: 5%;
-  padding-left: 16%;
-}
-
 /** Login page **/
 
 /** This is the image on the login page **/
 #logo-img{
   width: 600px;
   height: 750px;
-  margin-top: 5%;
-  margin-left: 20%;
+  margin-top: -12%;
+  margin-left: -13%;
 }
 
 /** Home button **/
@@ -212,12 +206,10 @@ div#slider figure {
 /** This is the box that will be filled in by the user **/
 .login-box {
   padding: 40px;
-  position: absolute;
-  top: 13%;
-  right: 19%;
   width: 450px;
   background-color: #F7F7F7;
-  margin: 0 auto 10px;
+  margin-left: -34%;
+  margin-top: -11%;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -330,10 +322,10 @@ div#slider figure {
 
 /** Styling for a header **/
 .NewReviewHeader{
+  text-align: left;
+  padding-left: 2em;
   font-size: 2em;
   font-weight: bold;
-  margin-left: -13%;
-  margin-top: -6%;
 }
 
 /** Styling for each review box **/
@@ -343,8 +335,6 @@ div#slider figure {
   box-sizing: content-box;
   width: 731px;
   opacity: 0.86;
-  margin: 6px;
-  margin-left: -13%;
   padding: 9px;
   border: 3px solid #35073f;
   -webkit-border-radius: 10px;
@@ -394,7 +384,6 @@ div#slider figure {
 
 /** Styling for the right hand side of the page**/
 #page-rightside {
-  margin-top: -15%;
   margin-left: 19%;
 }
 /** Styling for the review pages **/
@@ -438,11 +427,9 @@ div#slider figure {
 }
 
 .review-rating{
-  position: relative;
-  text-align: center;
+  text-align: left;
   font-size: 42px;
   color: #FFD700;
-  left: -2%;
 }
 
 .review-rating-box{
@@ -453,13 +440,14 @@ div#slider figure {
   left: 5%;
 }
 
-.rating {
-    float:left;
-}
 
 #top-rating-Box{
-  position: relative;
-  margin-left: 5%;
+  float: left;
+}
+
+#reviewBox{
+  width: 28em;
+  height: 7em;
 }
 
 #top-rating{
@@ -520,9 +508,7 @@ div#slider figure {
 }
 
 .review-text{
-  float: right;
   text-align: left;
-  margin-top: 0.8em;
   padding: 20px;
   font-size: 18px;
 }
@@ -540,12 +526,10 @@ div#slider figure {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   float: left;
-  width: 477px;
-  position: relative;
-  top: 10px;
+  width: 100%;
+  height: 12em;
+  margin-top: 5%;
   opacity: 0.86;
-  margin: 15px;
-  padding: 15px;
   overflow: hidden;
   border: 3px solid #35073f;
   -webkit-border-radius: 10px;
@@ -569,7 +553,10 @@ div#slider figure {
   margin-left: 10px;
   position: relative;
   top: 15px;
+}
 
+#QuestionBoxColour{
+  background-color: #555;
 }
 
 #question-box-answer {
@@ -627,9 +614,6 @@ position: absolute;
 }
 
 #button-Box{
-  position: absolute;
-  bottom: 6%;
-  left: 4%;
   margin-bottom: 2%;
   padding: 6px 15px;
   border:2px solid #4B0082;
@@ -640,24 +624,22 @@ position: absolute;
 /** Courses **/
 
 .discussion-heading-courses{
-  float: none;
   font-size: 22px;
+  padding-left: 1em;
   font-weight: bold;
-  margin-left: 30%;
 }
 
 .review-heading-courses{
-  position: absolute;
-  top: 80%;
-  left: 2%
+  padding-top: 1em;
+  font-size: 26px;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
 }
 
 .login-box-review-courses{
-  position: absolute;
-  top: 89%;
-  left: 3%;
-  width: 30%;
-  height: 30em;
+  width: 30em;
+  height: 25em;
+  margin-left: 2%;
   padding: 0%;
   background-color: #F7F7F7;
   border-radius: 2px;
