@@ -5,14 +5,14 @@
 
   <meta charset="UTF-8">
 
-  <title>LAU | Sign in</title>
+  <title>LAU | Create a topic</title>
 
     <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
     <link rel="icon" type="image/png" href="images/icon.png">
 </head>
 <body id="LoginPageBackground">
   <div class="login-box-topic">
-    <a id="home-button" class="Button" href="index.html">Home</a>
+    <button id="BackButton" onclick="goBack()">Back</button>
     <h1> Create a topic </h1>
   <form>
     <input type="text" name="name" placeholder="Title of topic">
@@ -21,11 +21,10 @@
       <input type="file" onchange="previewFile()"><br>
       <img src="" height="220" alt="Choose an image to display the topic">
     </div>
-    <a id="submit-button" class="Button" href="index.html">Submit review</a>
+    <a id="button-Box" class="Button" href="index.html">Submit review</a>
   </form>
 </div>
 
-<button id="back" onclick="goBack()">Go Back</button>
 <script>
 function previewFile() {
   var preview = document.querySelector('img');
@@ -39,6 +38,10 @@ function previewFile() {
   if (file) {
     reader.readAsDataURL(file);
   }
+}
+
+function goBack() {
+  window.history.back();
 }
 </script>
 </body>

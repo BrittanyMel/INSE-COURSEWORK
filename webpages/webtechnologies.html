@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>LAU | Web Technologies</title>
@@ -9,8 +8,7 @@
   <link rel="icon" type="image/png" href="images/icon.png" sizes="32x32">
   <script src="client.js"></script>
 </head>
-
-<body class="container-fluid">
+<body>
   <div class="LogedInStatusBox">
     <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
     <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
@@ -28,15 +26,17 @@
     <li><a href="facilities.html">Facilities</a></li>
     <li><a href="entertainment.html">Entertainment</a></li>
   </ul>
+  <button id="BackButton" onclick="goBack()">Back</button>
   <p id="you-are-here">
     You are here: University of Portsmouth > Courses > Web Technologies
   </p>
+  <div class="container">
   <h1 class="PageTitle"> Web Technologies <br /><br /></h1>
   <h2 class="discussion-heading-courses">
     Discussion - Get your questions answered:
   </h2>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3 text-center">
     <div class="question-box">
       <p id="question-box-question">Q: Is this course intensive?</p>
       <p><br /></p>
@@ -44,7 +44,15 @@
       <p id="question-box-answer">A: This course is very intensive and requires alot of hard work.</p>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3 text-center">
+    <div class="question-box">
+      <p id="question-box-question">Q: Is this course intensive?</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p id="question-box-answer">A: This course is very intensive and requires alot of hard work.</p>
+    </div>
+  </div>
+  <div class="col-md-3 text-center">
     <div class="question-box">
       <p id="question-box-question">Q: How many scheduled lessons are there in a week?</p>
       <p><br /></p>
@@ -52,8 +60,8 @@
       <p id="question-box-answer">A: There are 12 scheduled lessons.</p>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="question-box">
+  <div class="col-md-3 text-center">
+    <div class="question-box" id = "QuestionBoxColour">
       <p id="question-box-question">Have your own question? Input below.</p>
       <p><br /></p>
       <p><br /></p>
@@ -68,7 +76,8 @@
   <h2 class="review-heading-courses">
     See the most recent reviews for Web Technologies below:
   </h2>
-    <div class="login-box-review-courses">
+  <div class = "col-md-6 text-center">
+    <div class="createReviewBox">
       <h1> Create a review </h1>
       <form method="post" action="/api/createReview">
         <input type="text" name="name" placeholder="Title of review">
@@ -88,8 +97,9 @@
       </form>
   </div>
 </div>
+</div>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-3 text-center">
     <div class="question-box">
       <p id="question-box-question">Good Course</p>
       <p><br /></p>
@@ -97,7 +107,7 @@
       <p id="question-box-answer">I liked this course and i believe i learn much.</p>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3 text-center">
     <div class="question-box">
       <p id="question-box-question">Bad Course</p>
       <p><br /></p>
@@ -106,5 +116,11 @@
     </div>
   </div>
 </div>
+</div>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </body>
 </html>

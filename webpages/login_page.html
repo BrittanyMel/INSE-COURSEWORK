@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-3">
         <div class="login-box">
-          <a id="home-button" class="Button" href="index.html">Home</a>
+          <button id="BackButtonLogin" onclick="goBack()">Back</button>
           <h2>Already registered? Log in here.</h2>
         <form name="login" id="login">
           <input type="email" name="login" placeholder="UPXXXXXX@myport.ac.uk">
@@ -39,5 +39,10 @@
         </div>
     </div>
   </div>
+  <script>
+  function goBack() {
+      window.history.back();
+  }
+  </script>
 </body>
 </html>

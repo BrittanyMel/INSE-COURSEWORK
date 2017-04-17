@@ -178,14 +178,41 @@ div#slider figure {
   margin: 0 0.7em;
 }
 
+#BackButtonLogin{
+  -moz-appearance: button;
+  -ms-appearance: button;
+  -o-appearance: button;
+  -webkit-appearance: button;
+  text-decoration: none;
+  font-size: 18px;
+  background-color: #4B0082;
+  color: #ffffff;
+  opacity: 0.8;
+  margin: -6px 17.7em;
+}
+
+#BackButton{
+  -moz-appearance: button;
+  -ms-appearance: button;
+  -o-appearance: button;
+  -webkit-appearance: button;
+  text-decoration: none;
+  margin-top: 1%;
+  margin-left: 1%;
+  font-size: 18px;
+  background-color: #4B0082;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
 /** Login page **/
 
 /** This is the image on the login page **/
 #logo-img{
   width: 600px;
   height: 750px;
-  margin-top: -12%;
-  margin-left: -13%;
+  margin-top: -2%;
+  margin-left: 16%;
 }
 
 /** Home button **/
@@ -208,8 +235,20 @@ div#slider figure {
   padding: 40px;
   width: 450px;
   background-color: #F7F7F7;
-  margin-left: -34%;
-  margin-top: -11%;
+  margin-left: -6%;
+  margin-top: 11%;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.createReviewBox{
+  padding: 40px;
+  width: 450px;
+  background-color: #F7F7F7;
+  margin-left: 59%;
+  margin-top: 2%;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -430,6 +469,8 @@ div#slider figure {
   text-align: left;
   font-size: 42px;
   color: #FFD700;
+  padding-left: 20px;
+  padding-top: 1em;
 }
 
 .review-rating-box{
@@ -442,12 +483,20 @@ div#slider figure {
 
 
 #top-rating-Box{
-  float: left;
 }
 
 #reviewBox{
   width: 28em;
   height: 7em;
+}
+
+.review-heading{
+  padding-top: 1em;
+  font-size: 22px;
+  font-weight: bold;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+  text-align: center;
 }
 
 #top-rating{
@@ -528,7 +577,7 @@ div#slider figure {
   float: left;
   width: 100%;
   height: 12em;
-  margin-top: 5%;
+  margin-top: 7%;
   opacity: 0.86;
   overflow: hidden;
   border: 3px solid #35073f;
@@ -557,15 +606,15 @@ div#slider figure {
 
 #QuestionBoxColour{
   background-color: #555;
+  border: 3px solid #555;
 }
 
 #question-box-answer {
   font-size: 15px;
   color: #ffffff;
   text-align: left;
-  float: left;
   margin-left: 10px;
-  position: relative;
+  margin-top: 8%;
 }
 
 #input-question {
@@ -627,20 +676,25 @@ position: absolute;
   font-size: 22px;
   padding-left: 1em;
   font-weight: bold;
+  text-align: center;
 }
 
 .review-heading-courses{
   padding-top: 1em;
-  font-size: 26px;
+  font-size: 22px;
+  font-weight: bold;
   padding-left: 1em;
   padding-bottom: 0.5em;
+  text-align: center;
 }
 
+
+1
 .login-box-review-courses{
   width: 30em;
   height: 25em;
-  margin-left: 2%;
   padding: 0%;
+  margin-left: 32%;
   background-color: #F7F7F7;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
