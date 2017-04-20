@@ -1,6 +1,5 @@
 <!Doctype html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>LAU | Student Life</title>
@@ -9,14 +8,17 @@
   <link rel="icon" type="image/png" href="images/icon.png" sizes="32x32">
 </head>
 <body class="container-fluid">
-  <div class="LogedInStatusBox">
-    <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
-    <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
+  <div id="backgroundHeader">
+    <img id="logopicture" src="images/logo.png" alt="Logo">
+    <div class="LogedInStatusBox">
+      <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
+      <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
+    </div>
+    <form id="search-form">
+      <input id="bar" type="text" placeholder="Search..." required>
+      <input id="button" type="button" value="Search">
+    </form>
   </div>
-  <form id="search-form">
-    <input id="bar" type="text" placeholder="Search..." required>
-    <input id="button" type="button" value="Search">
-  </form>
   <ul id="NavBar">
     <li><a href="index.html">Home</a></li>
     <li><a href="courses.html">Courses</a></li>
@@ -30,19 +32,19 @@
 <div class="row">
   <div class="col-md-7 text-center">
     <h2 class="NewReviewHeader"><a href="createtopic.html">Create a new topic</a></h2>
-      <div class="info-box">
+      <div class="info-box text-center">
       <img id="info-box-img" src="images/health.png" alt="Health">
       <a id="info-box-title" href="health.html">Health</a>
       <a id="info-box-subtext" href="health.html">Click this page to find out more information,<br />or to leave your own review!</a>
       <a id="info-box-rating" href="health.html">4★</a>
       </div>
-      <div class="info-box">
+      <div class="info-box text-center">
       <img id="info-box-img" src="images/food.jpg" alt="Food">
       <a id="info-box-title" href="food.html">Food</a>
       <a id="info-box-subtext" href="food.html">Click this page to find out more information,<br />or to leave your own review!</a>
       <a id="info-box-rating" href="food.html">4★</a>
       </div>
-      <div class="info-box">
+      <div class="info-box text-center">
       <img id="info-box-img" src="images/shopping.jpg" alt="Shopping">
       <a id="info-box-title" href="shopping.html">Shopping</a>
       <a id="info-box-subtext" href="shopping.html">Click this page to find out more information,<br />or to leave your own review!</a>

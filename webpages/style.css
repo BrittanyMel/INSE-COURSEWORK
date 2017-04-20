@@ -2,9 +2,13 @@
 
 /** sets the background and font of the other pages**/
 body {
-    background-image: url("images/banner.png");
-    background-repeat: no-repeat;  /** displays the background once **/
     font-family: 'Roboto', sans-serif !important;
+}
+
+#backgroundHeader{
+    background-image: url("images/websitebggrey.png");
+    background-repeat: no-repeat;
+    margin: -14px -15px 0 -15px;
 }
 
 /** sets the background and font of the login page**/
@@ -15,18 +19,36 @@ body {
 
 /** Index page **/
 
+#websiteTitle{
+  margin: 0%;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#websiteSubtitle{
+  margin: 0%;
+  text-align: center;
+  font-size: 20px;
+}
+
 /** The login box on the top right **/
 .LogedInStatusBox {
+  float: right;
   padding: 3px;
   width: 220px;
   height: 140px;
-  margin-left: 86%;
-  margin-top: 1%;
+  margin-top: 2%;
   background-color: #F7F7F7;
   overflow: hidden;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   opacity: 0.8;
+}
+
+#logopicture{
+  width: 12em;
+  margin-top: 0%;
 }
 
 /** The text inside the login box **/
@@ -38,7 +60,8 @@ body {
 /** Styling for the form used to create the search bar **/
 #search-form {
   width: 700px;
-  margin: 7px auto;
+  margin: 4px auto;
+  margin-top: -4%;
   padding:8px 15px;
   background:rgba(0, 0, 0, 0.2);
   border:0px solid #dbdbdb;
@@ -70,7 +93,7 @@ body {
   width: 100%;
   text-align: center;
   list-style: none;
-  margin: -3px;
+  margin-top: -7px;
   padding: -1px;
 }
 
@@ -170,7 +193,7 @@ div#slider figure {
   text-decoration: none;
   padding: 10px 10px;
   border: 0px;
-  font-size: 30px;
+  font-size: 20px;
   background-color: #4B0082;
   color: #ffffff;
   opacity: 0.8;
@@ -491,11 +514,8 @@ div#slider figure {
 }
 
 .review-heading{
-  padding-top: 1em;
   font-size: 22px;
   font-weight: bold;
-  padding-left: 1em;
-  padding-bottom: 0.5em;
   text-align: center;
 }
 
@@ -558,8 +578,9 @@ div#slider figure {
 
 .review-text{
   text-align: left;
-  padding: 20px;
   font-size: 18px;
+  margin-bottom: -11%;
+  padding-left: 20px;
 }
 
 .discussion-heading{
@@ -570,7 +591,7 @@ div#slider figure {
   margin-left: 27%;
 }
 
-.question-box {
+.question-box{
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -650,17 +671,6 @@ div#slider figure {
   opacity: 0.8;
 }
 
-#SiteMap{
-top: 102%;
-right: 5%;
-position: absolute;
-}
-
-.review-heading{
-  position: absolute;
-  top: 145%;
-  left: 2%
-}
 
 #button-Box{
   margin-bottom: 2%;
@@ -673,6 +683,13 @@ position: absolute;
 /** Courses **/
 
 .discussion-heading-courses{
+  font-size: 22px;
+  padding-left: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.discussion-heading-accomodation{
   font-size: 22px;
   padding-left: 1em;
   font-weight: bold;

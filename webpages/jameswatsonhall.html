@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>LAU | James Watson Hall</title>
@@ -9,16 +8,18 @@
   <link rel="icon" type="image/png" href="images/icon.png" sizes="32x32">
   <script src="client.js"></script>
 </head>
-
 <body>
-  <div class="LogedInStatusBox">
-    <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
-    <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
+  <div id="backgroundHeader">
+    <img id="logopicture" src="images/logo.png" alt="Logo">
+    <div class="LogedInStatusBox">
+      <h2 id="LoginBox">Already registered? <a href="login_page.html">Log in here.</a></h2>
+      <h2 id="LoginBox">New User? <a href="login_page.html">Create an account here.</a></h2>
+    </div>
+    <form id="search-form">
+      <input id="bar" type="text" placeholder="Search..." required>
+      <input id="button" type="button" value="Search">
+    </form>
   </div>
-  <form id="search-form">
-    <input id="bar" type="text" placeholder="Search..." required>
-    <input id="button" type="button" value="Search">
-  </form>
   <ul id="NavBar">
     <li><a href="index.html">Home</a></li>
     <li><a href="courses.html">Courses</a></li>
@@ -28,9 +29,11 @@
     <li><a href="facilities.html">Facilities</a></li>
     <li><a href="entertainment.html">Entertainment</a></li>
   </ul>
+  <button id="BackButton" onclick="goBack()"> Back </button>
   <p id="you-are-here">
     You are here: University of Portsmouth > Accommodation > James Watson Hall
   </p>
+  <div class="container">
   <h1 class="PageTitle"> James Watson Hall <br /><br /></h1>
   <div class="review-gallery cf">
     <div>
@@ -48,12 +51,8 @@
     <div>
       <img src="images/accom/jamesreview5.jpg" />
     </div>
-    <div>
-      <img src="images/accom/jamesreview6.jpg" />
-    </div>
   </div>
   <div class = "row">
-    <div class="col-md-6">
   <p class="review-rating">
     Rating: 4★
   </p>
@@ -69,29 +68,36 @@
     <br />
   </p>
 </div>
-</div>
-  <h2 class="discussion-heading">
+  <h2 class="discussion-heading-accomodation">
     Discussion - Get your questions answered:
   </h2>
-  <div class="question-box">
-    <p id="question-box-question">Q: Are the bathrooms shared?</p>
-    <p><br /></p>
-    <p><br /></p>
-    <p id="question-box-answer">A: Each room has an en-suite shower and toilet</p>
+  <div class="row">
+  <div class="col-md-3 text-center">
+    <div class="question-box">
+      <p id="question-box-question">Q: Are the bathrooms shared?</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p id="question-box-answer">A: Each room has an en-suite shower and toilet</p>
+    </div>
   </div>
+  <div class="col-md-3 text-center">
   <div class="question-box">
     <p id="question-box-question">Q: How many rooms in each flat?</p>
     <p><br /></p>
     <p><br /></p>
     <p id="question-box-answer">A: Each flat has 6 rooms</p>
   </div>
+</div>
+<div class="col-md-3 text-center">
   <div class="question-box">
     <p id="question-box-question">Q: Are the halls peaceful/quiet?</p>
     <p><br /></p>
     <p><br /></p>
     <p id="question-box-answer">A: The halls can be busy and loud at times, <br /> and they're right next to the noisy clubs.</p>
   </div>
-  <div class="question-box">
+</div>
+<div class="col-md-3 text-center">
+  <div class="question-box" id="QuestionBoxColour">
     <p id="question-box-question">Have your own question? Input below.</p>
     <p><br /></p>
     <p><br /></p>
@@ -100,21 +106,17 @@
       <input id="input-question" type="submit" value="Submit">
     </form>
   </div>
-    <img id="SiteMap" border="0" alt="sitemap" src="images/accom/accommaplink.png">
-  <div class="login-box-review">
+</div>
+</div>
+<div class="row">
+  <h2 class ="review-heading-courses">
+    See the most recent reviews for James Watson Halls Below:
+  </h2>
+  <div class="col-md-6 text-center">
+  <div class="createReviewBox">
     <h1> Create a review </h1>
     <form method="post" action="/api/createReview">
       <input type="text" name="reviewTitle" placeholder="Title of review">
-      <br>
-      <select class="reviewType">
-        <option value="" disabled selected hidden="">Select an area related to your review</option>
-        <option value="courses">Courses</option>
-        <option value="studentlife">Student life</option>
-        <option value="accomodation">Accomodation</option>
-        <option value="transport">Transport</option>
-        <option value="facilities">Facilities</option>
-        <option value="entertainment">Entertainment</option>
-      </select>
       <br>
       <textarea id="reviewBox"type="text" name="ReviewContent" placeholder="Write review"> </textarea>
       <br>
@@ -130,12 +132,31 @@
       <input type="submit" name="submit" id="button-Box" class="button" value="Submit">
     </form>
 </div>
-  <h2 class="review-heading">
-    See the most recent reviews for James Watson below:
-  </h2>
-  <div id = "reviewsTest">
+</div>
+</div>
+<div class="row">
+  <div class="col-md-3 text-center">
+    <div class="question-box">
+      <p id="question-box-question">Good</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p id="question-box-answer">The service was fast and good.</p>
+    </div>
   </div>
+  <div class="col-md-3 text-center">
+    <div class="question-box">
+      <p id="question-box-question">Bad</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p id="question-box-answer">The service was not at the level that i expected it to be.</p>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </body>
-
-
 </html>
