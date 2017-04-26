@@ -1,9 +1,14 @@
-window.onload = retrieveReviews();
-
+window.onload = function(){
+	retrieveReviews();
+	console.log(document.cookie);
+};
 var registerForm = document.forms.namedItem("register");
 var loginForm = document.forms.namedItem("login");
 var form = document.getElementById('login');
 console.log(loginForm);
+var row = 1;
+var output = document.getElementById("row"+row);
+console.log(output);
 
 form.addEventListener('submit',function(ev){
 	console.log("Event triggered.");
@@ -54,31 +59,72 @@ function test(){
 	xhr.send(data);
 }
 
+function displayReview(title,mainContent,star,newRow){
+	if(!newRow){
 
-function displayReview(title,mainContent,star){
+		var reviewBox = document.createElement("div");
+		reviewBox.classList.add("col-md-3");
+		reviewBox.classList.add("text-center");
+		var p = document.createElement("p");
+		var breaki = document.createElement("br");
+		p.appendChild(breaki);
+		var questionBox = document.createElement("div");
+		questionBox.classList.add("question-box");
+		var questionBoxQuestion = document.createElement("p");
+		questionBoxQuestion.setAttribute("id", "question-box-question");
+		questionBoxQuestion.textContent = title;
+		var questionBoxAnswer = document.createElement("p");
+		questionBoxAnswer.setAttribute("id", "question-box-answer");
+		questionBoxAnswer.textContent = mainContent;
+		var rating = document.createElement("p");
+		rating.setAttribute("id", "info-box-rating");
+		rating.textContent = star + "★";
 
-	var output = document.getElementById('reviewsTest');
-	var reviewBox = document.createElement("div");
-	reviewBox.classList.add("review-box");
-	var p = document.createElement("p");
-	var breaki = document.createElement("br");
-	p.appendChild(breaki);
-	var questionBoxQuestion = document.createElement("p");
-	questionBoxQuestion.setAttribute("id", "review-box-title");
-	questionBoxQuestion.textContent = title;
-	var questionBoxAnswer = document.createElement("p");
-	questionBoxAnswer.setAttribute("id", "review-box-answer");
-	questionBoxAnswer.textContent = mainContent;
-	var rating = document.createElement("p");
-	rating.setAttribute("id", "info-box-rating");
-	rating.textContent = star + "★";
+		questionBox.appendChild(questionBoxQuestion);
+		questionBox.appendChild(p);
+		questionBox.appendChild(p);
+		questionBox.appendChild(questionBoxAnswer);
+		questionBox.appendChild(rating);
+		output = document.getElementById("reviewsTest")
+		reviewBox.appendChild(questionBox);
+		console.log(output) 
+		output.appendChild(reviewBox);
+	}
+	else{
+		row++;
+		newRow = document.createElement("div");
+		newRow.classList.add("row");
+		newRow.setAttribute("id", "row"+row);
 
-	reviewBox.appendChild(questionBoxQuestion);
-	reviewBox.appendChild(p);
-	reviewBox.appendChild(p);
-	reviewBox.appendChild(questionBoxAnswer);
-	reviewBox.appendChild(rating);
-	output.appendChild(reviewBox);
+		var reviewBox = document.createElement("div");
+		reviewBox.classList.add("col-md-3");
+		reviewBox.classList.add("text-center");
+		var p = document.createElement("p");
+		var breaki = document.createElement("br");
+		p.appendChild(breaki);
+		var questionBox = document.createElement("div");
+		questionBox.classList.add("question-box");
+		var questionBoxQuestion = document.createElement("p");
+		questionBoxQuestion.setAttribute("id", "question-box-question");
+		questionBoxQuestion.textContent = title;
+		var questionBoxAnswer = document.createElement("p");
+		questionBoxAnswer.setAttribute("id", "question-box-answer");
+		questionBoxAnswer.textContent = mainContent;
+		var rating = document.createElement("p");
+		rating.setAttribute("id", "info-box-rating");
+		rating.textContent = star + "★";
+
+		questionBox.appendChild(questionBoxQuestion);
+		questionBox.appendChild(p);
+		questionBox.appendChild(p);
+		questionBox.appendChild(questionBoxAnswer);
+		questionBox.appendChild(rating);
+		output = document.getElementById("reviewsTest")
+		reviewBox.appendChild(questionBox);
+		newRow.appendChild(reviewBox);
+		console.log(output) 
+		output.appendChild(newRow);
+	}
 }
 function retrieveReviews() {
     var xhr = new XMLHttpRequest();
@@ -98,10 +144,15 @@ function retrieveReviews() {
 }
 function loadReviews(reviews){
 	for (var i=0; i<reviews.length; i++){
+		if (i % 2==0){
 		console.log(reviews[i].REVIEW_CATEGORY);
-  	console.log(reviews[i].REVIEW_ID);
+  		console.log(reviews[i].REVIEW_ID);
 
-		displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS);
+		displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS, true);
+		}
+		else{
+			displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS, false);
+		}
 	}
 }
 

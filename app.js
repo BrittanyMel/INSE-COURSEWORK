@@ -77,13 +77,13 @@ app.post('/api/login', upload.single('image'), function(req, res) {
 		req.session.id = req.body.login[0];
 		console.log("sessionCreated.");
 		req.session.canPost = true;
-		res.send(null);
+		res.send(true);
 	}).sql;
 });
 
 
 app.get('/api/logout', function(req, res) {
-  req.session.reset();
+  req.session.destroy();
   res.redirect('/');
 });
 
@@ -98,7 +98,7 @@ app.post('/api/createReview' ,function(req, res) {
 				('00' + date.getUTCMinutes()).slice(-2) + ':' +
 				('00' + date.getUTCSeconds()).slice(-2);
 
-	console.log(req.body);
+
 	var post  = {
 	  REVIEW_TITLE: req.body.reviewTitle,
 	  REVIEW_CATEGORY: "default",
@@ -106,6 +106,8 @@ app.post('/api/createReview' ,function(req, res) {
 	  REVIEW_CONTENT: req.body.reviewContent,
 	  REVIEW_STARS: 5
 	};
+
+
 	if(req.session.canPost){
 		console.log(connection.query('INSERT INTO REVIEWS SET ?', post, function(err, result) {
 		console.log("added: ");

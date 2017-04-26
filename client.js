@@ -1,27 +1,7 @@
-window.onload = retrieveReviews();
-
-// var registerForm = document.forms.namedItem("register");
-// var loginForm = document.forms.namedItem("login");
-// console.log(loginForm);
-//
-// loginForm.addEventListener('submit',function(ev){
-// 	data = new FormData(form);
-// 	console.log(data);
-// 	var req = new XMLHttpRequest();
-// 	req.open("POST", '/api/login');
-// 	req.onload = function(oEvent){
-// 		if(req.status == 200){
-// 			console.log("success");
-// 		}
-// 		else{
-// 			console.log("fail");
-// 			alert("Login failed: bad Username")
-// 		}
-// 	};
-// 	req.send(data);
-// 	ev.preventDefault();
-// 	}, false);
-// });
+window.onload = function(){
+	retrieveReviews();
+	console.log(document.cookie);
+};
 
 
 function test(){
@@ -84,7 +64,7 @@ function retrieveReviews() {
     xhr.send(null);
 }
 function loadReviews(reviews){
-	for (var i=0; i<reviews.length; i++){
+	for (var i=0; i<reviews.length; i+2){
 		console.log(reviews[i].REVIEW_CATEGORY);
   	console.log(reviews[i].REVIEW_ID);
 
