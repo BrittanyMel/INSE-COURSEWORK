@@ -1,6 +1,17 @@
+var myStorage = localStorage;
+generateUniPage();
+document.getElementById("createReview").addEventListener("click", createReview,false);
+document.getElementById("submitTopic").addEventListener("click", createTopic,false);
+localStorage.setItem('uni', 1);
+localStorage.setItem('cat', 1);
 window.onload = function(){
 	retrieveReviews();
-	console.log(document.cookie);
+	console.log(window.location.pathname);
+	if(window.location.pathname==="/accountsettings.html"){
+		console.log("it is");
+		getAccountSettings();
+
+	}
 };
 var registerForm = document.forms.namedItem("register");
 var loginForm = document.forms.namedItem("login");
@@ -43,11 +54,16 @@ function test(){
 	console.log("starting request");
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", '/api/login');
-	xhr.onreadystatechange = function(){
+	xhr.onreadystatechange = function(e){
 		if (xhr.readyState == 4) {
 			if(xhr.status == 200){
 				console.log("success");
 				window.location.href = "index.html";
+				var jsonResponse = JSON.parse(xhr.responseText);
+				console.log(jsonResponse);
+				localStorage.setItem('id', jsonResponse);
+				console.log(localStorage);
+
 			}
 			else{
 				console.log("fail");
@@ -60,7 +76,7 @@ function test(){
 }
 
 function displayReview(title,mainContent,star,newRow){
-	if(!newRow){
+	if(newRow === false){
 
 		var reviewBox = document.createElement("div");
 		reviewBox.classList.add("col-md-3");
@@ -87,7 +103,7 @@ function displayReview(title,mainContent,star,newRow){
 		questionBox.appendChild(rating);
 		output = document.getElementById("reviewsTest")
 		reviewBox.appendChild(questionBox);
-		console.log(output) 
+		console.log(output)
 		output.appendChild(reviewBox);
 	}
 	else{
@@ -119,11 +135,11 @@ function displayReview(title,mainContent,star,newRow){
 		questionBox.appendChild(p);
 		questionBox.appendChild(questionBoxAnswer);
 		questionBox.appendChild(rating);
-		output = document.getElementById("reviewsTest")
+		var newOutput = document.getElementById("reviewsTest")
 		reviewBox.appendChild(questionBox);
 		newRow.appendChild(reviewBox);
-		console.log(output) 
-		output.appendChild(newRow);
+		console.log(output);
+		newOutput.appendChild(newRow);
 	}
 }
 function retrieveReviews() {
@@ -148,7 +164,7 @@ function loadReviews(reviews){
 		console.log(reviews[i].REVIEW_CATEGORY);
   		console.log(reviews[i].REVIEW_ID);
 
-		displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS, true);
+			displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS, true);
 		}
 		else{
 			displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS, false);
@@ -156,6 +172,173 @@ function loadReviews(reviews){
 	}
 }
 
+function getAccountSettings(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', '/api/accountSettings');
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+							var data = xhr.responseText;
+							var jsonResponse = JSON.parse(data);
+							console.log(jsonResponse);
+							updateAccountSettings(jsonResponse);
+					}
+			}
+	};
+	console.log(localStorage.getItem('id'))
+	xhr.send(JSON.stringify(localStorage.getItem('id')));
+
+}
+// gets account settings.
+function updateAccountSettings(details){
+	console.log(details);
+}
+
+
+function createTopic(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', '/api/createTopic');
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+							var data = xhr.responseText;
+							var jsonResponse = JSON.parse(data);
+							console.log(jsonResponse);
+							updateAccountSettings(jsonResponse);
+					}
+			}
+	};
+	console.log(localStorage.getItem('id'))
+	xhr.send(JSON.stringify(localStorage.getItem('id')));
+
+}
+
+function generateUniPage(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', '/api/getUniPage');
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+							var data = xhr.responseText;
+							var jsonResponse = JSON.parse(data);
+							console.log(jsonResponse[0].UNIVERSITY_NAME);
+							var title = document.getElementById("uniTitle")
+							title.innerHTML = jsonResponse[0].UNIVERSITY_NAME;
+							console.log(title)
+					}
+			}
+	};
+	var id = {id:localStorage.getItem('uni')}
+	console.log(JSON.stringify(localStorage.getItem('uni')));
+	xhr.send(JSON.stringify(id));
+
+}
+
+function generateCategoryPage(catType){
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', '/api/getCategoryPage');
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+							var data = xhr.responseText;
+							var jsonResponse = JSON.parse(data);
+							console.log(jsonResponse[0]);
+
+		
+					}
+			}
+	};
+	var info = {id:localStorage.getItem('uni'),
+			  catType: catType}
+	console.log(JSON.stringify(localStorage.getItem('uni')));
+	xhr.send(JSON.stringify(info));
+
+}
+
+//createReview function gets form data and sends a xmlHttprequest to the server to be added to the database.
 function createReview(){
+	var reviewContent = document.getElementById("reviewBox");
+	var reviewTitle = document.getElementById("reviewTitle");
+	console.log("Called");
+	var reviewForm = document.forms.namedItem("createReviews");
+	var form = document.getElementById('createReviews');
+	console.log(reviewContent.value);
+	var formData = {
+		reviewContent: reviewContent.value,
+		reviewTitle: reviewTitle.value,
+		reviewer: localStorage.getItem("id"),
+		cat: localStorage.getItem("cat"),
+		uniId: localStorage.getItem("uni")
+	};
+	console.log(formData);
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '/api/createReview');
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onreadystatechange = function(e){
+		if (xhr.readyState == 4) {
+			if(xhr.status == 200){
+				console.log("success");
+				var jsonResponse = JSON.parse(xhr.responseText);
+				console.log(jsonResponse);
+
+			}
+			else{
+				console.log("fail");
+				console.log(formData)
+			}
+		}
+
+	};
+	xhr.send(JSON.stringify(formData));
+}
+
+function displayTopic(){
+	//document.location.href = newUrl;
+	var topics = document.getElementById("topics");
+	var reviewBox = document.createElement("div");
+	reviewBox.classList.add("col-md-7");
+	reviewBox.classList.add("text-center");
+
+}
+function retrievetopics() {
+	var data = {
+
+	}
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/topics');
+    xhr.setRequestHeader("Content-Type", "text/xml");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var data = xhr.responseText;
+				var jsonResponse = JSON.parse(data);
+				console.log(jsonResponse);
+            }
+        }
+    };
+    xhr.send(null);
+}
+
+function createTopic(){
+	console.log("called");
+	var tName = document.getElementById("topicName").value;
+	var data = {name: tName}
+	var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/createtopic');
+    xhr.setRequestHeader("Content-Type", "text/xml");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var data = xhr.responseText;
+				var jsonResponse = JSON.parse(data);
+				console.log(jsonResponse);
+            }
+        }
+    };
+    xhr.send(data);
 
 }

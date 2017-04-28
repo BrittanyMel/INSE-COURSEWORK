@@ -116,10 +116,10 @@
   <div class="col-md-6 text-center">
   <div class="createReviewBox">
     <h1> Create a review </h1>
-    <form method="post" action="/api/createReview">
-      <input type="text" name="reviewTitle" placeholder="Title of review">
+    <form name="createReviews" id="createReviews">
+      <input id ="reviewTitle" type="text" name="reviewTitle" placeholder="Title of review">
       <br>
-      <textarea id="reviewBox"type="text" name="ReviewContent" placeholder="Write review"> </textarea>
+      <textarea id="reviewBox" type="text" name="ReviewContent" placeholder="Write review"> </textarea>
       <br>
       </p>
       <fieldset class="rating" id="top-rating-Box">
@@ -130,7 +130,7 @@
         <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
         <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very Bad">1 star</label>
       </fieldset>
-      <input type="submit" name="submit" id="button-Box" class="button" value="Submit">
+      <button id="createReview"> submit </button>
     </form>
 </div>
 </div>
@@ -144,6 +144,7 @@ function goBack() {
   window.history.back();
 }
 </script>
-  <script src="client.js"></script>
+
 </body>
+  <script src="client.js"></script>
 </html>

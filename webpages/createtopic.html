@@ -15,13 +15,13 @@
     <button id="BackButton" onclick="goBack()">Back</button>
     <h1> Create a topic </h1>
   <form>
-    <input type="text" name="name" placeholder="Title of topic">
+    <input id = "topicName" type="text" name="name" placeholder="Title of topic">
     <br>
     <div class="picture">
       <input type="file" onchange="previewFile()"><br>
       <img src="" height="220" alt="Choose an image to display the topic">
     </div>
-    <a id="button-Box" class="Button" href="index.html">Submit review</a>
+    <button id="submitTopic">Submit topic </button>
   </form>
 </div>
 
@@ -45,5 +45,5 @@ function goBack() {
 }
 </script>
 </body>
-
+  <script src="client.js"></script>
 </html>
