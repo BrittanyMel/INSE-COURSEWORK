@@ -5,6 +5,10 @@ var expressValidator = require('express-validator');
 var multer  = require('multer');
 var upload = multer({ dest: 'webpages/images/'});
 var session = require('client-sessions');
+
+
+
+// create connection to sql server
 var connection = db.createConnection({
 	host: 'localhost',
 	user: 'root',
@@ -16,6 +20,8 @@ var app = express();
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
+// bodyParser middleware so request can be read as a json object
 app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(session({
@@ -25,8 +31,12 @@ app.use(session({
   activeDuration: 5 * 60 * 1000,
 }));
 
+
+//serve static content
 app.use('/', express.static('webpages/'));
 
+
+// endpoint used for getting all of the reviews, queries the database
 app.get('/api/reviews', function(req,res){
 	var queryString = 'SELECT * from REVIEWS';
 	connection.query(queryString, function(err, rows, fields){
@@ -41,6 +51,8 @@ app.get('/api/reviews', function(req,res){
 	});
 
 });
+
+// endpoint used to insert a new user to the database
 app.post('/api/register' ,function(req, res) {
 
 	console.log(req.body);
@@ -58,6 +70,8 @@ app.post('/api/register' ,function(req, res) {
 
 		}).sql);
 });
+
+// endpoint used to verify login and log people in
 app.post('/api/login', upload.single('image'), function(req, res) {
 	console.log(req.body);
 	var sess = req.session;
@@ -83,7 +97,7 @@ app.post('/api/login', upload.single('image'), function(req, res) {
 	}).sql;
 });
 
-
+//endpoint to edit account Settings its retreives the users data from the database and then sends to client/
 app.post('/api/accountSettings', upload.single('image'), function(req, res) {
 	console.log(req.body)
 	var query = 'SELECT `UNI_ID`, `UNI_EMAIL`, `UNI_PASSWORD`, FROM UNIVERSITY_USER WHERE UNI_ID = ?;';
@@ -102,13 +116,13 @@ app.post('/api/accountSettings', upload.single('image'), function(req, res) {
 });
 
 
-
+// endpoint to logout. destroys the session and redirects to index page
 app.get('/api/logout', function(req, res) {
   req.session.destroy();
   res.redirect('/');
 });
 
-
+// endpoint used to insert a newly created review.
 app.post('/api/createReview' ,function(req, res) {
 	console.log(req.body)
 	var date;
@@ -120,13 +134,14 @@ app.post('/api/createReview' ,function(req, res) {
 				('00' + date.getUTCMinutes()).slice(-2) + ':' +
 				('00' + date.getUTCSeconds()).slice(-2);
 
-
+	// json object created so SET could be used when inserting into the database for ease
+	// of access
 	var post  = {
 	  REVIEW_TITLE: req.body.reviewTitle,
 	  REVIEW_CATEGORY: "default",
 	  REVIEW_DATE: date,
 	  REVIEW_CONTENT: req.body.reviewContent,
-	  REVIEW_STARS: 5,
+	  REVIEW_STARS: 4,
 	  REVIEWER: req.body.reviewer,
 	  CATEGORY_ID: req.body.cat,
 	  UNIVERSITY_ID: req.body.uniId
@@ -149,7 +164,7 @@ app.post('/api/createReview' ,function(req, res) {
 });
 
 
-
+// endpoint returns the current uni page.
 app.post('/api/getUniPage', upload.single('image'), function(req, res) {
 	console.log(req.body.id);
 	var query = 'SELECT UNIVERSITY_NAME FROM University WHERE UNIVERSITY_ID = ?;';
@@ -168,7 +183,7 @@ app.post('/api/getUniPage', upload.single('image'), function(req, res) {
 });
 
 
-
+// endpoint returns the current category page.
 app.post('/api/getCategoryPage', upload.single('image'), function(req, res) {
 	console.log(req.body.id);
 	var query = 'SELECT UNIVERSITY_NAME FROM CATEGORIES WHERE CATEGORY_UNIVERSITY = ?;';
@@ -185,7 +200,7 @@ app.post('/api/getCategoryPage', upload.single('image'), function(req, res) {
 		res.send(details);
 	}).sql;
 });
-
+// Endpoint to insert a topic into the database.
 app.post('/api/createTopic', upload.single('image'), function(req, res) {
 	console.log(req.body);
 	var post = {TOPIC_NAME: req.body.name}
@@ -203,7 +218,7 @@ app.post('/api/createTopic', upload.single('image'), function(req, res) {
 		res.send(details);
 	}).sql;
 });
-
+// Endpoint to query the database for all topics.
 app.post('/api/topics', function(req,res){
 	console.log(req.body)
 	var queryString = 'SELECT * from TOPIC WHERE UNIVERSITY_ID = ?';
@@ -220,5 +235,6 @@ app.post('/api/topics', function(req,res){
 	})
 
 });
-app.listen(3002);
-console.log("connected: 3002");
+//
+app.listen(3000);
+console.log("connected: 3000");

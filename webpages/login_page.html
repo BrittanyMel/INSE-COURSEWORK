@@ -24,7 +24,7 @@
           <button onclick="test(); return false;"> submit </button>
         </form>
           <h2>New User? Just input your details below.</h2>
-        <form name="register">
+        <form name="register" method="post" action="/api/register">
           <input type="text" name="email" placeholder="UPXXXXXX@myport.ac.uk">
           <input type="text" name="name" placeholder="Full Name">
           <input type="text" name="displayname" placeholder="Display Name">
@@ -32,7 +32,7 @@
           <input type="text" name="universitypostcode" placeholder="University Postcode">
           <input type="password" name="pass" placeholder="Password">
           <input type="password" name="passconfirmation" placeholder="Confirm Password">
-          <!-- <input type="button" name="register" class="login login-submit" value="Register" onclick="test()"> -->
+          <input type="submit" name="register" class="login login-submit" value="Register">
           <button onclick="test()"> submit </button>
         </form>
         <div class="login-help">

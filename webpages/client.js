@@ -1,38 +1,50 @@
+// retrieve reviews loads the topics and reviews when they are needed.
+retrieveReviews();
+retrievetopics();
+// local Storage is used to keep track of the current page we are on when the dynamic content is being generated.
 var myStorage = localStorage;
 generateUniPage();
 document.getElementById("createReview").addEventListener("click", createReview,false);
 document.getElementById("submitTopic").addEventListener("click", createTopic,false);
+// This if statment changes the values in the login box to a different set if the user is logged in.
+if(localStorage.getItem('id') !== null){
+		document.getElementById("loginBox1").innerHTML = "";
+		var logoutButton = document.createElement('a');
+		logoutButton.setAttribute('src','/api/logout')
+		document.getElementById("loginBox1").appendChild(logoutButton);
+	}
 localStorage.setItem('uni', 1);
 localStorage.setItem('cat', 1);
 window.onload = function(){
 	retrieveReviews();
-	console.log(window.location.pathname);
-	if(window.location.pathname==="/accountsettings.html"){
-		console.log("it is");
-		getAccountSettings();
 
+	if(window.location.pathname==="/accountsettings.html"){
+
+		getAccountSettings();
 	}
-};
+
+}
+// gets the data from the client and posts it to the server when the client is registering
 var registerForm = document.forms.namedItem("register");
 var loginForm = document.forms.namedItem("login");
 var form = document.getElementById('login');
-console.log(loginForm);
+
 var row = 1;
 var output = document.getElementById("row"+row);
-console.log(output);
+
 
 form.addEventListener('submit',function(ev){
-	console.log("Event triggered.");
+
 	var data = new FormData(form);
-	console.log(data);
+
 	var req = new XMLHttpRequest();
 	req.open("POST", '/api/login');
 	req.onload = function(oEvent){
 		if(req.status == 200){
-			console.log("success");
+
 		}
 		else{
-			console.log("fail");
+
 			alert("Login failed: bad Username");
 		}
 	req.send(data);
@@ -45,28 +57,23 @@ function test(){
 	var registerForm = document.forms.namedItem("register");
 	var loginForm = document.forms.namedItem("login");
 	var form = document.getElementById('login');
-	console.log(form);
+
 	var data = new FormData(form);
-	//for (var [key, value] of data.entries()) {
-  //console.log(key, value);
-//}
-	console.log(data);
-	console.log("starting request");
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", '/api/login');
 	xhr.onreadystatechange = function(e){
 		if (xhr.readyState == 4) {
 			if(xhr.status == 200){
-				console.log("success");
+
 				window.location.href = "index.html";
 				var jsonResponse = JSON.parse(xhr.responseText);
-				console.log(jsonResponse);
+
 				localStorage.setItem('id', jsonResponse);
-				console.log(localStorage);
+
 
 			}
 			else{
-				console.log("fail");
 				alert("Login failed: bad Username");
 			}
 		}
@@ -74,7 +81,7 @@ function test(){
 	};
 	xhr.send(data);
 }
-
+// Displays teh reviews creates the HTML CONTENT. and appends it to the page so that it is displayed.
 function displayReview(title,mainContent,star,newRow){
 	if(newRow === false){
 
@@ -103,7 +110,6 @@ function displayReview(title,mainContent,star,newRow){
 		questionBox.appendChild(rating);
 		output = document.getElementById("reviewsTest")
 		reviewBox.appendChild(questionBox);
-		console.log(output)
 		output.appendChild(reviewBox);
 	}
 	else{
@@ -137,11 +143,11 @@ function displayReview(title,mainContent,star,newRow){
 		questionBox.appendChild(rating);
 		var newOutput = document.getElementById("reviewsTest")
 		reviewBox.appendChild(questionBox);
-		newRow.appendChild(reviewBox);
-		console.log(output);
+
 		newOutput.appendChild(newRow);
 	}
 }
+// makes a get request to the server to query for all reviews.
 function retrieveReviews() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/reviews');
@@ -151,19 +157,17 @@ function retrieveReviews() {
             if (xhr.status == 200) {
                 var data = xhr.responseText;
 								var jsonResponse = JSON.parse(data);
-								console.log(jsonResponse);
 								loadReviews(jsonResponse);
             }
         }
     };
     xhr.send(null);
 }
+//loops through the retrieved reviews and displays them one by one. The modulus if statement in there makes it so there is only 2 reviews on
+// on there at a given time.
 function loadReviews(reviews){
 	for (var i=0; i<reviews.length; i++){
 		if (i % 2==0){
-		console.log(reviews[i].REVIEW_CATEGORY);
-  		console.log(reviews[i].REVIEW_ID);
-
 			displayReview(reviews[i].REVIEW_TITLE,reviews[i].REVIEW_CONTENT,reviews[i].REVIEW_STARS, true);
 		}
 		else{
@@ -171,7 +175,7 @@ function loadReviews(reviews){
 		}
 	}
 }
-
+// gets the account settings posts the users ids.
 function getAccountSettings(){
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', '/api/accountSettings');
@@ -181,21 +185,16 @@ function getAccountSettings(){
 					if (xhr.status == 200) {
 							var data = xhr.responseText;
 							var jsonResponse = JSON.parse(data);
-							console.log(jsonResponse);
 							updateAccountSettings(jsonResponse);
 					}
 			}
 	};
-	console.log(localStorage.getItem('id'))
 	xhr.send(JSON.stringify(localStorage.getItem('id')));
 
 }
-// gets account settings.
-function updateAccountSettings(details){
-	console.log(details);
-}
 
 
+// creates a topic
 function createTopic(){
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', '/api/createTopic');
@@ -205,16 +204,14 @@ function createTopic(){
 					if (xhr.status == 200) {
 							var data = xhr.responseText;
 							var jsonResponse = JSON.parse(data);
-							console.log(jsonResponse);
 							updateAccountSettings(jsonResponse);
 					}
 			}
 	};
-	console.log(localStorage.getItem('id'))
 	xhr.send(JSON.stringify(localStorage.getItem('id')));
 
 }
-
+// posts the uni id currently in use so that the correct information can be displayed on  the dynamic page.
 function generateUniPage(){
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', '/api/getUniPage');
@@ -224,19 +221,17 @@ function generateUniPage(){
 					if (xhr.status == 200) {
 							var data = xhr.responseText;
 							var jsonResponse = JSON.parse(data);
-							console.log(jsonResponse[0].UNIVERSITY_NAME);
 							var title = document.getElementById("uniTitle")
 							title.innerHTML = jsonResponse[0].UNIVERSITY_NAME;
-							console.log(title)
+
 					}
 			}
 	};
 	var id = {id:localStorage.getItem('uni')}
-	console.log(JSON.stringify(localStorage.getItem('uni')));
 	xhr.send(JSON.stringify(id));
 
 }
-
+// posts the category id currently in use so that the correct information can be displayed on  the dynamic page.
 function generateCategoryPage(catType){
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', '/api/getCategoryPage');
@@ -246,7 +241,6 @@ function generateCategoryPage(catType){
 					if (xhr.status == 200) {
 							var data = xhr.responseText;
 							var jsonResponse = JSON.parse(data);
-							console.log(jsonResponse[0]);
 
 		
 					}
@@ -254,7 +248,7 @@ function generateCategoryPage(catType){
 	};
 	var info = {id:localStorage.getItem('uni'),
 			  catType: catType}
-	console.log(JSON.stringify(localStorage.getItem('uni')));
+
 	xhr.send(JSON.stringify(info));
 
 }
@@ -263,10 +257,9 @@ function generateCategoryPage(catType){
 function createReview(){
 	var reviewContent = document.getElementById("reviewBox");
 	var reviewTitle = document.getElementById("reviewTitle");
-	console.log("Called");
 	var reviewForm = document.forms.namedItem("createReviews");
 	var form = document.getElementById('createReviews');
-	console.log(reviewContent.value);
+
 	var formData = {
 		reviewContent: reviewContent.value,
 		reviewTitle: reviewTitle.value,
@@ -274,28 +267,25 @@ function createReview(){
 		cat: localStorage.getItem("cat"),
 		uniId: localStorage.getItem("uni")
 	};
-	console.log(formData);
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", '/api/createReview');
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.onreadystatechange = function(e){
 		if (xhr.readyState == 4) {
 			if(xhr.status == 200){
-				console.log("success");
 				var jsonResponse = JSON.parse(xhr.responseText);
-				console.log(jsonResponse);
 
 			}
 			else{
-				console.log("fail");
-				console.log(formData)
+				alert("Error: You are not logged in");
 			}
 		}
 
 	};
 	xhr.send(JSON.stringify(formData));
 }
-
+// displays the topics on the pages much like displayReviews.
 function displayTopic(topic){
 	//document.location.href = newUrl;
 	var topics = document.getElementById("topics");
@@ -316,9 +306,9 @@ function displayTopic(topic){
 
 	reviewBox.appendChild(secondAnchor);
 	topics.appendChild(reviewBox);
-	console.log("done");
 
 }
+// retrieves thes current pages topics from the server and parses it to loadTopics function
 function retrievetopics() {
 	var data = {
 		uniId: localStorage.getItem('uni')
@@ -331,16 +321,14 @@ function retrievetopics() {
             if (xhr.status == 200) {
                 var data = xhr.responseText;
 				var jsonResponse = JSON.parse(data);
-				console.log(jsonResponse);
 				loadTopics(jsonResponse)
             }
         }
     };
     xhr.send(JSON.stringify(data));
 }
-
+// posts the newly created topic to the server so that i can be added
 function createTopic(){
-	console.log("called");
 	var tName = document.getElementById("topicName").value;
 	var data = {name: tName,
 				uniId: localStorage.getItem('uni')}
@@ -353,16 +341,16 @@ function createTopic(){
                 var data = xhr.responseText;
 				var jsonResponse = JSON.parse(data);
 
-				console.log(jsonResponse);
+				
             }
         }
     };
     xhr.send(data);
 
 }
+// loops through the topics one by one and displays them
 function loadTopics(topics){
 	for (var i=0; i<topics.length; i++){
-		console.log(topics[0].TOPIC_NAME);
 		displayTopic(topics[i].TOPIC_Name);
 }
 }
