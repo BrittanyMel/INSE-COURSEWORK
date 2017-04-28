@@ -296,37 +296,54 @@ function createReview(){
 	xhr.send(JSON.stringify(formData));
 }
 
-function displayTopic(){
+function displayTopic(topic){
 	//document.location.href = newUrl;
 	var topics = document.getElementById("topics");
 	var reviewBox = document.createElement("div");
-	reviewBox.classList.add("col-md-7");
+	reviewBox.classList.add("info-box");
 	reviewBox.classList.add("text-center");
+	var img = document.createElement('img');
+	img.setAttribute('src',"images/uop-img.png")
+	img.setAttribute('id',"info-box-img");
+	var anchor = document.createElement('a');
+	anchor.innerHTML = topic;
+	anchor.setAttribute('id','info-box-title');
+	var secondAnchor = document.createElement('a');
+	reviewBox.appendChild(img);
+	reviewBox.appendChild(anchor);
+	secondAnchor.innerHTML="Click this page to find out more information or to leave your own review!"
+	secondAnchor.setAttribute('id','info-box-subtext');
+
+	reviewBox.appendChild(secondAnchor);
+	topics.appendChild(reviewBox);
+	console.log("done");
 
 }
 function retrievetopics() {
 	var data = {
-
+		uniId: localStorage.getItem('uni')
 	}
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/api/topics');
-    xhr.setRequestHeader("Content-Type", "text/xml");
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 var data = xhr.responseText;
 				var jsonResponse = JSON.parse(data);
 				console.log(jsonResponse);
+				loadTopics(jsonResponse)
             }
         }
     };
-    xhr.send(null);
+    xhr.send(JSON.stringify(data));
 }
 
 function createTopic(){
 	console.log("called");
 	var tName = document.getElementById("topicName").value;
-	var data = {name: tName}
+	var data = {name: tName,
+				uniId: localStorage.getItem('uni')}
 	var xhr = new XMLHttpRequest();
     xhr.open('POST', '/api/createtopic');
     xhr.setRequestHeader("Content-Type", "text/xml");
@@ -335,10 +352,17 @@ function createTopic(){
             if (xhr.status == 200) {
                 var data = xhr.responseText;
 				var jsonResponse = JSON.parse(data);
+
 				console.log(jsonResponse);
             }
         }
     };
     xhr.send(data);
 
+}
+function loadTopics(topics){
+	for (var i=0; i<topics.length; i++){
+		console.log(topics[0].TOPIC_NAME);
+		displayTopic(topics[i].TOPIC_Name);
+}
 }

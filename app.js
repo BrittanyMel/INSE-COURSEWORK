@@ -204,6 +204,21 @@ app.post('/api/createTopic', upload.single('image'), function(req, res) {
 	}).sql;
 });
 
+app.post('/api/topics', function(req,res){
+	console.log(req.body)
+	var queryString = 'SELECT * from TOPIC WHERE UNIVERSITY_ID = ?';
+	connection.query(queryString, req.body.uniId, function(err, rows, fields){
+		if (err)	{
+			console.log(err);
+			console.log("Querying error");
+		}
+		else{
+			var reviews = JSON.stringify(rows);
+			console.log(reviews);
+			res.send(reviews);
+		}
+	})
 
+});
 app.listen(3002);
 console.log("connected: 3002");
