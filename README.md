@@ -14,3 +14,5 @@ Installation instructions:
   3. Copy the sql code from the sql folder into your mysql server to create the database.
   
   4. node app.js
+
+  5. Enter IP address and local host to load website into browser.
